@@ -12,7 +12,6 @@ import {AuthContext} from "../components/AuthProvider"
 
 export default function AuthPage() {
   const loginImage = "https://sig1.co/img-twitter-1";
-
   const [modalShow, setModalShow] = useState(null);
   const handleShowSignUp = () => setModalShow("SignUp");
   const handleShowLogin = () => setModalShow("Login");
@@ -43,10 +42,8 @@ useEffect(()=>{
 const handleLogin = async (e) => {
   e.preventDefault();
   try {
-await signInWithEmailAndPassword(auth, username, password)
+    await signInWithEmailAndPassword(auth, username, password);
   } catch (error) {
-    console.error("Status:", error.response?.status);
-    console.error("Error data:", error.response?.data);
     console.error("Full error:", error);
   }
 };
